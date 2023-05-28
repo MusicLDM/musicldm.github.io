@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MusicLDM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="config/bootstrap.min.css" />
+    <link rel="stylesheet" href="config/ionicons.css" />
+    <link rel="stylesheet" href="config/theme.css" />
+    <link rel="stylesheet" href="config/template3.css" />
+  </head>
+<body data-spy="scroll" data-target="#navbar1" data-offset="60">
+<div class="container-fluid" style="min-width:1300px;">
+    <div class="row">
+        <div class="col-12 p-0 bg-primary vh-40 py-5">
+            <div class="container" style="min-width:1300px;">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 py-2 text-light">
+                        <h2 class="display-5 mb-3">
+                            MusicLDM: Enhancing Novelty in Text-to-Music Generation Using Beat-Synchronous Mixup Strategies
+                        </h2>
+                        <p class="lead mb-3">
+                            In this paper, we present MusicLDM, a state-of-the-art text-to-music model that adapts Stable Diffusion and AudioLDM architectures 
+                            to the music domain. We achieve this by retraining the contrastive language-audio pretraining model (CLAP) and the Hifi-GAN vocoder, 
+                            as components of MusicLDM, on a collection of music data samples. 
+                            Then, we leverage a beat tracking model and propose two different mixup strategies for data augmentation: 
+                            beat-synchronous audio mixup and beat-synchronous latent mixup, to encourage the model to generate music more diverse while still staying faithful to the corresponding style. 
+                        </p>
+                        <p class="lead mb-3">
+                            In this page, we present the generation demos of MusicLDM, and the comparison to Riffusion, MuBERT and AudioLDM's generations. Our MusicLDM was trained on Audiostock dataset, which contains 10,000 text-music pairs with the total duration of 455.35 hours.
+                            We show how the generation is on such magnitude of the dataset. All generations are in 16kHz sampling rate and 10-sec length.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="navbar1">
+    <div class="container" style="min-width:1300px;">
+        <a class="navbar-brand mr-1 mb-1 mt-0" href="#">Demo Page</a>
+    </div>  
+</nav> 
+<main>
+    <section id="edm" class="pb-1">
+        <div class="container" style="min-width:1300px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                            General Music & Electronic Dance Music (EDM)
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <div class="row w-100 text-center pb-3">
+                                <div class="col">
+                                    <span class = "my-auto">Text Description</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MusicLDM (ours)</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">Riffusion</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MuBERT</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">AudioLDM</span>
+                                </div>
+                            </div>
+
+                            
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Western music, chill out, folk instrument R & B beat</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9486.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9486.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9486.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9486.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Cute toy factory theme loop</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9096.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9096.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9096.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9096.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Fashionable Pop Cute Electr</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9853.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9853.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9853.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9853.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">The royal road! kawaii future bass</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9023.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9023.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9023.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9023.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Blessed harpsichord</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9061.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9061.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9061.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9061.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Light rhythm techno</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9044.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9044.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9044.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9044.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Futuristic drum and bass</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9070.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9070.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9070.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9070.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Fashionable lo-fi hip hop </span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9071.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9071.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9071.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9071.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">A tropical country resort style BGM characterized by ukulele</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9083.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9083.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9083.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9083.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Feeling pounding and mysterious synth sound</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9092.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9092.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9092.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9092.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Bingo music box</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9095.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9095.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9095.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9095.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Fun, Lively, Pets, Information, Exciting</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9011.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9011.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9011.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9011.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Dramatic EDM</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9103.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9103.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9103.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9103.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="string" class="pb-1">
+        <div class="container" style="min-width:1300px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                            String & Orchestra
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <div class="row w-100 text-center pb-3">
+                                <div class="col">
+                                    <span class = "my-auto">Text Description</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MusicLDM (ours)</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">Riffusion</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MuBERT</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">AudioLDM</span>
+                                </div>
+                            </div>
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Royal Film Music Orchestra</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9483.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9483.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9483.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9483.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Castle town music, a gentle orchestra</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9099.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9099.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9099.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9099.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Elegant and gentle tunes of string quartet + harp</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9054.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9054.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9054.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9054.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Orchestra foretelling the beginning of an adventure</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9017.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9017.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9017.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9017.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Dreamy fantasy orchestra clip</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9490.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9490.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9490.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9490.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="piano" class="pb-1">
+        <div class="container" style="min-width:1300px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                            Piano
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <div class="row w-100 text-center pb-3">
+                                <div class="col">
+                                    <span class = "my-auto">Text Description</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MusicLDM (ours)</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">Riffusion</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MuBERT</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">AudioLDM</span>
+                                </div>
+                            </div>
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Pop OP/ED with acoustic guitar and piano</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9430.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9430.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9430.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9430.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Japanese healing music of piano and shakuhachi</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9053.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9053.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9053.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9053.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">A fantastic piece of music with the deep sound of overlapping pianos</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9058.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9058.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9058.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9058.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Quiet piano</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9073.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9073.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9073.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9073.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Piano ballad remembering fresh youth</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9386.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9386.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9386.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9386.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guitar" class="pb-1">
+        <div class="container" style="min-width:1300px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                            Guitar
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <div class="row w-100 text-center pb-3">
+                                <div class="col">
+                                    <span class = "my-auto">Text Description</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MusicLDM (ours)</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">Riffusion</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MuBERT</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">AudioLDM</span>
+                                </div>
+                            </div>
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Bright and energetic guitars, synths, drums, etc</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9351.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9351.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9351.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9351.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Refreshing and relaxed guitar sound</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9418.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9418.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9418.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9418.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Gentle live acoustic guitar</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9548.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9548.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9548.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9548.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Performance of guitar and keyboard harmonica, bright tune</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9057.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9057.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9057.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9057.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Relaxing guitar pop BG</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9233.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9233.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9233.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9233.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Acoustic guitar hiphop</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9395.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9395.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9395.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9395.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Exciting guitar rock short jingle</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9240.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9240.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9240.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9240.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Jazz-funk-taste guitar instrument</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9356.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9356.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9356.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9356.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="saxophone" class="pb-1">
+        <div class="container" style="min-width:1300px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                            Saxophone
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <div class="row w-100 text-center pb-3">
+                                <div class="col">
+                                    <span class = "my-auto">Text Description</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MusicLDM (ours)</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">Riffusion</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MuBERT</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">AudioLDM</span>
+                                </div>
+                            </div>
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <span class = "my-auto">Lyrical ballad sung by saxophone</span>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/musicldm/9499.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/riffusion/9499.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/mubert/9499.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/audioldm/9499.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    <footer id="footer" class="bg-dark text-light py-5">
+    </footer> 
+<script src="config/jquery.min.js"></script>
+<script src="config/popper.min.js"></script>
+<script src="config/bootstrap.min.js"></script>
+<script src="config/scripts.js"></script>
+</body>
+</html>
