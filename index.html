@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="config/template3.css" />
   </head>
 <body data-spy="scroll" data-target="#navbar1" data-offset="60">
-<div class="container-fluid" style="min-width:1300px;">
+<div class="container-fluid" style="min-width:80%;">
     <div class="row">
         <div class="col-12 p-0 bg-primary vh-40 py-5">
-            <div class="container" style="min-width:1300px;">
+            <div class="container" style="min-width:80%;">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 py-2 text-light">
                         <h2 class="display-5 mb-3">
@@ -40,13 +40,13 @@
     </div>
 </div>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="navbar1">
-    <div class="container" style="min-width:1300px;">
-        <a class="navbar-brand mr-1 mb-1 mt-0" href="#">Demo Page</a>
+    <div class="container" style="min-width:83%;">
+        <a class="navbar-brand mr-1 mb-1 mt-0" href="#">Appendix Page</a>
     </div>  
 </nav> 
 <main>
     <section id="edm" class="pb-1">
-        <div class="container" style="min-width:1300px;">
+        <div class="container" style="min-width:80%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pb-1">
@@ -484,7 +484,7 @@
     </section>
 
     <section id="string" class="pb-1">
-        <div class="container" style="min-width:1300px;">
+        <div class="container" style="min-width:80%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pb-1">
@@ -676,7 +676,7 @@
     </section>
 
     <section id="piano" class="pb-1">
-        <div class="container" style="min-width:1300px;">
+        <div class="container" style="min-width:80%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pb-1">
@@ -868,7 +868,7 @@
     </section>
 
     <section id="guitar" class="pb-1">
-        <div class="container" style="min-width:1300px;">
+        <div class="container" style="min-width:80%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pb-1">
@@ -1150,10 +1150,8 @@
         </div>
     </section>
 
-    
-
     <section id="saxophone" class="pb-1">
-        <div class="container" style="min-width:1300px;">
+        <div class="container" style="min-width:80%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pb-1">
@@ -1226,7 +1224,7 @@
     </section>
 
     <section id="video" class="pb-1">
-        <div class="container" style="min-width:1300px;">
+        <div class="container" style="min-width:80%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pb-1">
@@ -1254,6 +1252,425 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+
+    <section id="video" class="pb-1">
+        <div class="container" style="min-width:80%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                           Similarity on Training Set
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="row w-100 text-left my-3 px-3">   
+                            <p class = "my-3 px-3">
+                                In order to verify if an audio track in the training set is copied by the model. We use the CLAP score to measure similarity between each audio embedding in the training set, to its most similar audio embedding from the generation pieces. 
+                                Therefore, we can verify if the model could leverage Beat-Synchronous Latent Mixup (BLM) to prevent copying the audio tracks in the training set when performing the generation.  
+                            </p>    
+                        </div> 
+                    </div>
+                </div>
+
+            <div class="col-md-12">
+                <div class="card border-primary h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="row w-100 text-center">
+                            <div class="col">
+                                <span class = "my-auto">Music Track in Training Set</span>
+                            </div>
+                            <div class="col">
+                                <span class = "my-auto">Most Similar Generation from MusicLDM-Original</span>
+                            </div>
+                            <div class="col">
+                                <span class = "my-auto">Most Similar Generation from MusicLDM-BLM</span>
+                            </div>
+                        </div>
+
+                        <div class="row w-100 text-center my-3">   
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/10_train.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/10_musicldm_0.935.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/10_blm_0.654.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                        </div> 
+                        <div class="row w-100 text-center">   
+                            <div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/10_train.png" width="100%">
+                            </div>
+                            <div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/10_musicldm_0935.png" width="100%">
+                            </div><div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/10_blm_0654.png" width="100%">
+                            </div> 
+                        </div>
+                        <div class="row w-100 text-center">   
+                            <div class="col my-auto">
+                                Similarity: N/A
+                            </div>
+                            <div class="col my-auto">
+                                Similarity: 0.935
+                            </div>
+                            <div class="col my-auto">
+                                Similarity: 0.654
+                            </div>
+                        </div>
+                        
+                </div></div>
+            
+            </div>
+            <div class="col-md-12">
+                <div class="card border-primary h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="row w-100 text-center">
+                            <div class="col">
+                                <span class = "my-auto">Music Track in Training Set</span>
+                            </div>
+                            <div class="col">
+                                <span class = "my-auto">Most Similar Generation from MusicLDM-Original</span>
+                            </div>
+                            <div class="col">
+                                <span class = "my-auto">Most Similar Generation from MusicLDM-BLM</span>
+                            </div>
+                        </div>
+
+                        <div class="row w-100 text-center my-3">   
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/90_train.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim//90_musicldm_0.872.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/90_blm_0.709.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                        </div> 
+                        <div class="row w-100 text-center">   
+                            <div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/90_train.png" width="100%">
+                            </div>
+                            <div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/90_musicldm_0872.png" width="100%">
+                            </div><div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/90_blm_0709.png" width="100%">
+                            </div> 
+                        </div>
+                        <div class="row w-100 text-center">   
+                            <div class="col my-auto">
+                                Similarity: N/A
+                            </div>
+                            <div class="col my-auto">
+                                Similarity: 0.872
+                            </div>
+                            <div class="col my-auto">
+                                Similarity: 0.709
+                            </div>
+                        </div>
+                        
+                </div></div>
+            
+            </div>
+            <div class="col-md-12">
+                <div class="card border-primary h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="row w-100 text-center">
+                            <div class="col">
+                                <span class = "my-auto">Music Track in Training Set</span>
+                            </div>
+                            <div class="col">
+                                <span class = "my-auto">Most Similar Generation from MusicLDM-Original</span>
+                            </div>
+                            <div class="col">
+                                <span class = "my-auto">Most Similar Generation from MusicLDM-BLM</span>
+                            </div>
+                        </div>
+
+                        <div class="row w-100 text-center my-3">   
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/87_train.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/87_musicldm_0.879.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                            <div class="col my-auto">
+                                <audio controls style="width:100%;">
+                                    <source src="files/similarity/train_sim/87_blm_0.565.wav" type="audio/mpeg">
+                                    Your browser does not support the audio.
+                                </audio>
+                            </div>
+                        </div> 
+                        <div class="row w-100 text-center">   
+                            <div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/87_train.png" width="100%">
+                            </div>
+                            <div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/87_musicldm_0879.png" width="100%">
+                            </div><div class="col my-auto">
+                                <img style="margin-left:-1.5rem;" src="files/similarity/train_sim/87_blm_0565.png" width="100%">
+                            </div> 
+                        </div>
+                        <div class="row w-100 text-center">   
+                            <div class="col my-auto">
+                                Similarity: N/A
+                            </div>
+                            <div class="col my-auto">
+                                Similarity: 0.879
+                            </div>
+                            <div class="col my-auto">
+                                Similarity: 0.565
+                            </div>
+                        </div>
+                        
+                </div></div>
+            
+            </div>
+            </div>
+    </section>
+
+
+    <section id="video" class="pb-1">
+        <div class="container" style="min-width:80%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                           Similarity on Test Set
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="row w-100 text-left my-3 px-3">   
+                            <p class = "my-3 px-3">
+                                Similarily and Reversely, we use the CLAP score to measure similarity between each audio embedding from the generation pieces, to its most similar audio embedding in the training set. 
+                                This is the verification, in terms of the recall, to detemine if BLM can prevent the model from copying the audio tracks in the training set.  
+                            </p>    
+                        </div> 
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <div class="card border-primary h-100">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <div class="row w-100 text-center">
+                                <div class="col">
+                                    <span class = "my-auto">MusicLDM-Original's Generation</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">Most Similar Track in the Training Set</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">MusicLDM-BLM's Generation (from the same prompt)</span>
+                                </div>
+                                <div class="col">
+                                    <span class = "my-auto">Most Similar Track in the Training Set</span>
+                                </div>
+                            </div>
+    
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9007_musicldm.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9007_musicldm_2728.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9007_blm.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9007_blm_6501.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            <div class="row w-100 text-center">   
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9007_musicldm.png" width="100%">
+                                </div>
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9007_musicldm_2728.png" width="100%">
+                                </div>
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9007_blm.png" width="100%">
+                                </div> 
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9007_blm_6501.png" width="100%">
+                                </div>
+                                
+                            </div>
+                            <!-- <div class="row w-100 text-center">   
+                                <div class="col my-auto">
+                                    Similarity: N/A
+                                </div>
+                                <div class="col my-auto">
+                                    Similarity: 0.935
+                                </div>
+                                <div class="col my-auto">
+                                    Similarity: 0.654
+                                </div>
+                            </div> -->
+                            
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9044_musicldm.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9044_musicldm_188.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9044_blm.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9044_blm_7125.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            <div class="row w-100 text-center">   
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9044_musicldm.png" width="100%">
+                                </div>
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9044_musicldm_188.png" width="100%">
+                                </div>
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9044_blm.png" width="100%">
+                                </div> 
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9044_blm_7125.png" width="100%">
+                                </div>
+                                
+                            </div>
+                            <!-- <div class="row w-100 text-center">   
+                                <div class="col my-auto">
+                                    Similarity: N/A
+                                </div>
+                                <div class="col my-auto">
+                                    Similarity: 0.935
+                                </div>
+                                <div class="col my-auto">
+                                    Similarity: 0.654
+                                </div>
+                            </div> -->
+
+                            <div class="row w-100 text-center my-3">   
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9063_musicldm.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9063_musicldm_8812.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9063_blm.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                                <div class="col my-auto">
+                                    <audio controls style="width:100%;">
+                                        <source src="files/similarity/test_sim/9063_blm_7455.wav" type="audio/mpeg">
+                                        Your browser does not support the audio.
+                                    </audio>
+                                </div>
+                            </div> 
+                            <div class="row w-100 text-center">   
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9063_musicldm.png" width="100%">
+                                </div>
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9063_musicldm_8812.png" width="100%">
+                                </div>
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9063_blm.png" width="100%">
+                                </div> 
+                                <div class="col my-auto">
+                                    <img style="margin-left:-1.5rem;" src="files/similarity/test_sim/9063_blm_7455.png" width="100%">
+                                </div>
+                                
+                            </div>
+                            <!-- <div class="row w-100 text-center">   
+                                <div class="col my-auto">
+                                    Similarity: N/A
+                                </div>
+                                <div class="col my-auto">
+                                    Similarity: 0.935
+                                </div>
+                                <div class="col my-auto">
+                                    Similarity: 0.654
+                                </div>
+                            </div> -->
+
+                    </div></div>
+                
+                </div>
+            </div>
+            
+            
         </div>
     </section>
 </main>
