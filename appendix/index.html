@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MusicLDM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../config/bootstrap.min.css" />
+    <link rel="stylesheet" href="../config/ionicons.css" />
+    <link rel="stylesheet" href="../config/theme.css" />
+    <link rel="stylesheet" href="../config/template3.css" />
+  </head>
+<body data-spy="scroll" data-target="#navbar1" data-offset="60">
+<div class="container-fluid" style="min-width:80%;">
+    <div class="row">
+        <div class="col-12 p-0 bg-primary vh-40 py-5">
+            <div class="container" style="min-width:80%;">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 py-2 text-light">
+                        <h2 class="display-5 mb-3">
+                            MusicLDM: Enhancing Novelty in Text-to-Music Generation Using Beat-Synchronous Mixup Strategies
+                        </h2>
+                        <p class="lead mb-3">
+                            In this paper, we present MusicLDM, a state-of-the-art text-to-music model that adapts Stable Diffusion and AudioLDM architectures 
+                            to the music domain. We achieve this by retraining the contrastive language-audio pretraining model (CLAP) and the Hifi-GAN vocoder, 
+                            as components of MusicLDM, on a collection of music data samples. 
+                            Then, we leverage a beat tracking model and propose two different mixup strategies for data augmentation: 
+                            beat-synchronous audio mixup and beat-synchronous latent mixup, to encourage the model to generate music more diverse while still staying faithful to the corresponding style. 
+                        </p>
+                        <p class="lead mb-3">
+                            In this page, we present three additional parts of MusicLDM.
+                        </p>
+                        <p class="lead mb-3">
+                            (1) We present different types of demos (with a new page) of MusicLDM, including the observation of plagiarism and the resolutions through examples.
+                        </p>
+                        <p class="lead mb-3">
+                            (2) We present the hyperparameters and training details of MusicLDM, which makes up some parts in the paper.
+                        </p>
+                        <p class="lead mb-3">
+                            (3) We present an additional evaluation of MusicLDM on the MusicCaps dataset, comparing with other baselines. 
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="navbar1">
+    <div class="container" style="min-width:83%;">
+        <a class="navbar-brand mr-1 mb-1 mt-0" href="#">Appendix Page</a>
+    </div>  
+</nav> 
+<main>
+
+    <section id="demo" class="pb-1">
+        <div class="container" style="min-width:80%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                           Demo
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <div class="card border-primary h-100 text-center" >
+                        <p style="padding-top: 1rem;">
+                        We present all of MusicLDM's demos on <a style="color:blue;" href="https://musicldm.github.io/">[this extra page]</a>, please refer the hyperlink for it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="detail" class="pb-1">
+        <div class="container" style="min-width:80%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                            Training Details and Hyperparameters of MusicLDM
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <p style="padding-top: 1rem;">
+                        For audio signal processing, we use the sampling rate of 16 kHz to convert all music samples for the training of MusicLDM. 
+                        Each input data is a chunk of 10.24 seconds randomly selected from the dataset, i.e., L=163840. 
+                        We use the hop size 160, the window size 1024, the filter length 1024, and the number of mel-bins 128 
+                        to compute the short-time Fourier transform (STFT) and mel-spectrograms. 
+                        As the result, the input mel-spectrogram has the time frame T=1024 and the mel-bins F=128.  
+                    </p>
+                    <p style="padding-top: 1rem;">
+                        We adopt a convolutional VAE as the latent audio representation model, 
+                        consisting of a 4-block downsampling encoder and a 4-block upsampling decoder. 
+                        The downsampling and upsampling rate P=8 and the latent dimension C=16, i.e., 
+                        the bottleneck latent variable y has a shape of (16, 128, 16). 
+                        For the latent diffusion model, we refer the UNet <a style="color:blue;" href="https://huggingface.co/spaces/multimodalart/latentdiffusion">latent diffusion model</a>. 
+                        It contains 4 encoder blocks, 1 bottleneck block, and 4 decoder blocks. 
+                        Each block contains 2 residual CNN layers and 1 spatial transformer layer. 
+                        The channel dimensions of encoder blocks are 128, 256, 384, 640 and reversed in decoder blocks. 
+                        For Hifi-GAN, we adopt <a style="color:blue;" href="https://github.com/jik876/hifi-gan">its official repository</a>  
+                        along with <a style="color:blue;" href="https://github.com/jik876/hifi-gan/blob/master/config_v1.json">the configuration</a>. 
+                        We change the number of mel-bins to 128 to fit the processing of MusicLDM. 
+                    </p>
+                    <p style="padding-top: 1rem;">
+                        For the training of VAE, we use the Adam optimizer with a learning rate of 0.0000045 with a batch size of 24. 
+                        We apply the mel-spectrogram loss, adversarial loss, and a Gaussian constraint loss as the training object of VAE. 
+                        For the training of Hifi-GAN, we use the batch size of 96 and the AdamW optimizer with beta_1=0.8, beta_2=0.99 at the learning rate of 0.0002. 
+                        For the training of MusicLDM, we use the batch size of 24 and the AdamW optimizer with the basic learning of 0.00003. 
+                        In the forward process, we use 1000-step of a linear noise schedule from beta_1=0.0015 to beta_1000=0.0195. 
+                        In the sampling process, we use the DDIM sampler with 200 steps. We adopt the classifier-free guidance with a guidance scale w=2.0. 
+                        When applying the mixup strategy, we use the mixup rate p=0.5. 
+                        The CLAP model is trained on 24 A100 GPUs. 
+                        The VAE and HifiGAN model are trained on 4 A60 GPUs. 
+                        Last, the latent diffusion model is trained on single NVIDIA A40. 
+                        All models are converged at the end of the training. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="musiccaps class="pb-1">
+        <div class="container" style="min-width:80%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pb-1">
+                        <p class="lead text-primary"> 
+                            Evaluation on MusicCaps Dataset
+                        </p>
+                    </div>        
+                    <hr class="my-1"/>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <p style="padding-top: 1rem;">
+                        We additionally evaluate MusicLDM on the <a style="color:blue;" href="https://www.kaggle.com/datasets/googleai/musiccaps">MusicCaps</a> dataset, which contains 5521 music samples with captions.
+                        Since many performance reports from MusicCaps are hard to be re-implemented (either missing of the training/inference code or due to the un-accesss of datasets), 
+                        we compare our MusicLDM results with the reported perfomrnace in previous papers, 
+                        namely Riffuion, MuBERT, MusicLDM, Mousai, MusicGen, and Noise2Music. 
+                        The metrics are Frechet Distance (FD_vgg) and KL Divergence (KL Div), while we also report other metrics on the Audiostock dataset in the paper submission. 
+                    </p>
+
+                    <img style="margin-left:10%; margin-right:10%" src="musiccaps.png" width="80%">
+
+                    <p style="padding-top: 1rem;">
+                        By combining the above table and Table 1 in the paper, we can conclude that MusicLDM achieves the compatible music generation performance mainly in terms of the audio quality with ony 455 hours training data. 
+                        It is worth to note that MusicLDM does not achieve the best performance on the MusicCaps dataset, because of it scarcity on the training data and the missing of AudioSet in the training data. 
+                        The performance of Frechet Distance and KL Divergence is largely depend on the distribution of its data.
+                        As many previous models, such as MusicLM and MusicGen use either Youtube or AudioSet-Source-Like datasets as the training data, they will achieve better performance.
+                        Another reason is due to the size of the training data, as MusicLDM is only trained with 455 hours of music.
+                        By looking at Table 1 for the result on Auiostock, we can observate a similar but superior performance of MusicLDM on the Audiostock evaluation set.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    <footer id="footer" class="bg-dark text-light py-5">
+    </footer> 
+<script src="config/jquery.min.js"></script>
+<script src="config/popper.min.js"></script>
+<script src="config/bootstrap.min.js"></script>
+<script src="config/scripts.js"></script>
+</body>
+</html>
